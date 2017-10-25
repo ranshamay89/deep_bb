@@ -5,6 +5,7 @@ import pprint
 
 # logger = basic_load(__file__, os.environ.get('ENV_OBJECT'))
 from flask import Flask, request, abort
+from flask_cors import CORS, cross_origin
 
 
 def load_blueprints(app):
@@ -39,7 +40,7 @@ def init_server(app):
 
 
 if __name__ == '__main__':
-    app = Flask(__name__)
+    app = CORS(Flask(__name__))
     load_blueprints(app)
     init_server(app)
     app.run(host=config.SERVER_IP,
