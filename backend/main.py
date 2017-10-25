@@ -40,7 +40,8 @@ def init_server(app):
 
 
 if __name__ == '__main__':
-    app = CORS(Flask(__name__))
+    app = Flask(__name__)
+    CORS(app)
     load_blueprints(app)
     init_server(app)
     app.run(host=config.SERVER_IP,
